@@ -233,11 +233,11 @@ def acesso():
         print("Login realizado!\n")
         print(f"Olá, {tipo_usuario} {nome_pessoa} ")
         print(usuarios)
-        verdados = input("Você quer ver algum dado seu? 1- Sim 2- Não")
-        if verdados == 1:
-            qualdado = input("Qual dado você quer ver? 1-Nome 2-CPF")
+        menu = input(f"{nome_pessoa}, o que gostaria de fazer? 1- Realizar atendimento / 2- Consultar atendimentos: ")
+        if menu == 1:
+            print("fazer o processo da classe atendimento... cada atributo")
 
-        saida()
+
     else:
         print("\nUsuário ou senha incorretos.")
         acesso()
