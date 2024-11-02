@@ -17,6 +17,12 @@ def verificacaoEMAIL(email): #função de verificação do email // felipe
             return True
     return False
 
+def verificacaoTELEFONE(telefone): #função de verificação do telefone // celso
+    for user in usuarios:
+        if user["objeto"].getTelefone() == telefone:
+            return True
+    return False
+
 def verificacaoCPF(cpf): #função de verificação do cpf // felipe
     for user in usuarios:
         if user["objeto"].getCpf() == cpf:
@@ -112,6 +118,19 @@ def registrar():
         except:
             print("\nInsira um email válido.\n")
 
+    while True: #verificação de número
+        try:
+            telefone = input("Digite seu telefone: ")
+            if verificacaoTELEFONE(telefone):
+                print("\nTelefone já registrado. Tente novamente.\n")
+                continue        
+
+            else: 
+                break        
+
+        except:
+            print("\nInsira um telefone válido.\n")
+
     usuario = input("Digite seu usuário: ")
     while True:
         senha = input("Digite sua senha: ")
@@ -151,15 +170,15 @@ def registrar():
                     print ("Insira um número!")
 
             curso = escolher_curso() #definindo o curso
-            novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso) #adicionar método para mandar telefone
+            novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso) 
 
         elif tipo == "2":
             atendimento = input("Digite seu horário de atendimento: ") #definindo a hora do atendimento
             curso = escolher_curso() #definindo o curso
-            novo_usuario = Prof(nome, idade, cpf, email, telefone, atendimento, curso) #adicionar método para mandar telefone
+            novo_usuario = Prof(nome, idade, cpf, email, telefone, atendimento, curso) 
 
         elif tipo == "3":
-            novo_usuario = Adm(nome, idade, cpf, email, telefone) #adicionar método para mandar telefone
+            novo_usuario = Adm(nome, idade, cpf, email, telefone) 
 
         else:
             print("Opção inválida. Tente novamente.")
@@ -191,7 +210,7 @@ def acesso():
         tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario["tipo"] == "2" else "Administrador"
         nome_pessoa = dados_usuario["objeto"].getNome()
         print("Login realizado!\n")
-        print(f"Olá, {nome_pessoa} ({tipo_usuario})")
+        print(f"Olá, {tipo_usuario} {nome_pessoa} ")
         print(usuarios)
         saida()
     else:

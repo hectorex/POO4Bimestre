@@ -60,13 +60,16 @@ class Adm(PessoaIFRO): #adm
 
 
 class Aluno(PessoaIFRO): #aluno
-    def __init__(self, nome: str, idade: int, cpf: int, email: str, matricula:str, curso: str):
-        self.matricula = matricula
-        self.curso = curso
-        super().__init__(nome, idade, cpf, email)
+    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, matricula: str, curso: str):
+        self.__matricula = matricula
+        self.__curso = curso
+        super().__init__(nome, idade, cpf, email, telefone)
         
     def getmatricula(self):
-        return self.matricula
+        return self.__matricula
+    
+    def getcurso(self):
+        return self.__curso
     
     def exibir(self):
         super().exibir()
