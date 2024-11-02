@@ -170,14 +170,36 @@ def registrar():
 
             curso = escolher_curso() #definindo o curso
             novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso) 
+            pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
+            if pcd_y_or_n == "SIM":
+                qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
+                pcd = qualpcd.split("possuo ")
+                pcd = pcd[1]
+                pcd = "possui "+pcd
+                novo_usuario.definindoPcd(pcd)
 
         elif tipo == "2":
             atendimento = input("Digite seu horário de atendimento: ") #definindo a hora do atendimento
             curso = escolher_curso() #definindo o curso
             novo_usuario = Prof(nome, idade, cpf, email, telefone, atendimento, curso) 
+            pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
+            if pcd_y_or_n == "SIM":
+                qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
+                pcd = qualpcd.split("possuo ")
+                pcd = pcd[1]
+                pcd = "possui "+pcd
+                novo_usuario.definindoPcd(pcd)
+
 
         elif tipo == "3":
             novo_usuario = Adm(nome, idade, cpf, email, telefone) 
+            pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
+            if pcd_y_or_n == "SIM":
+                qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
+                pcd = qualpcd.split("possuo ")
+                pcd = pcd[1]
+                pcd = "possui "+pcd
+                novo_usuario.definindoPcd(pcd)
 
         else:
             print("Opção inválida. Tente novamente.")
