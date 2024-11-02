@@ -7,3 +7,4 @@ att2: adicionado getcurso, adicionado atributo "pcd" na classe mãe, instanciand
 --------------------------------------------------
 att3 (ainda não feita): Criar função para englobar os 3 instanciamentos de PCD no login // André Louis da Silva Hector
 --------------------------------------------------
+att4 (ainda não terminada): Comecei a criar (na linha 238) pro usuário quando lugar ter a opção de ver os dados q ele quer dele mesmo // CH

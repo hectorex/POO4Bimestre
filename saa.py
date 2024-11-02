@@ -170,7 +170,7 @@ def registrar():
 
             curso = escolher_curso() #definindo o curso
             novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso) 
-            pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
+            pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper()
             if pcd_y_or_n == "SIM":
                 qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
                 pcd = qualpcd.split("possuo ")
@@ -233,6 +233,10 @@ def acesso():
         print("Login realizado!\n")
         print(f"Olá, {tipo_usuario} {nome_pessoa} ")
         print(usuarios)
+        verdados = input("Você quer ver algum dado seu? 1- Sim 2- Não")
+        if verdados == 1:
+            qualdado = input("Qual dado você quer ver? 1-Nome 2-CPF")
+
         saida()
     else:
         print("\nUsuário ou senha incorretos.")
