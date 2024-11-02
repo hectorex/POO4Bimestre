@@ -1,12 +1,21 @@
 class PessoaIFRO:   #mãe
-    def __init__(self, nome: str, idade: int, cpf: int, email: str):
+    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
         self.__nome = nome
         self.__idade = idade
         self.__cpf = cpf
         self.__email = email
+        self.__telefone = telefone
     
     def getNome(self):
         return self.__nome
+    
+    def getTelefone(self):
+        return self.__telefone
+    
+    def setTelefone(self):
+        print("Defina um novo telefone.")
+        novotelefone = input("Telefone: ")
+        self.__telefone = novotelefone
     
     def getIdade(self):
         return self.__idade

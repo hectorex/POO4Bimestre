@@ -139,7 +139,7 @@ def registrar():
 
             while True:
                 try:
-                    matricula = int(input("Digite sua matrícula: "))
+                    matricula = int(input("Digite sua matrícula: ")) #definindo matricula
                     if verificar_matricula(matricula):
                         print("Matrícula já registrada. Tente novamente.")
                         continue
@@ -150,16 +150,16 @@ def registrar():
                 except:
                     print ("Insira um número!")
 
-            curso = escolher_curso()
-            novo_usuario = Aluno(nome, idade, cpf, email, matricula, curso)
+            curso = escolher_curso() #definindo o curso
+            novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso) #adicionar método para mandar telefone
 
         elif tipo == "2":
-            atendimento = input("Digite seu horário de atendimento: ")
-            curso = escolher_curso()
-            novo_usuario = Prof(nome, idade, cpf, email, atendimento, curso)
+            atendimento = input("Digite seu horário de atendimento: ") #definindo a hora do atendimento
+            curso = escolher_curso() #definindo o curso
+            novo_usuario = Prof(nome, idade, cpf, email, telefone, atendimento, curso) #adicionar método para mandar telefone
 
         elif tipo == "3":
-            novo_usuario = Adm(nome, idade, cpf, email)
+            novo_usuario = Adm(nome, idade, cpf, email, telefone) #adicionar método para mandar telefone
 
         else:
             print("Opção inválida. Tente novamente.")
