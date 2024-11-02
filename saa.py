@@ -6,8 +6,7 @@ import time
 # André Luís Bento Ferreira
 # Celso Hector Silva Sales
 # Luiz Felipe Macedo Alencar de Menezes
-# Paulo Gabriel Alves
-# Joao Henrique Costa Fontele
+# Judson Gabriel de Souza Leticia Junior
 
 usuarios = [] #.txt aposentado, agr eh lista // celso
 
