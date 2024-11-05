@@ -8,21 +8,22 @@ import time
 # Luiz Felipe Macedo Alencar de Menezes
 # Judson Gabriel de Souza Leticia Junior
 
-usuarios = [] #.txt aposentado, agr eh lista // celso
-dias = [] # lista de dias de atendimento
+usuarios = []  # .txt aposentado, agr eh lista // celso
+dias = []  # lista de dias de atendimento
 
-def verificacaoDIA(data): # função para verificar se pro dia digitado já existe um atendimento // felipe w/ celso
+
+def verificacaoDIA(data):  # função para verificar se pro dia digitado já existe um atendimento // felipe w/ celso
     for datas in dias:
         if datas == data:
             return True
     return False
 
-def marcarAtendimento(aluno,professor): #vai ter q receber o professor e o aluno como parametro aqui
+
+def marcarAtendimento(aluno, professor):  # vai ter q receber o professor e o aluno como parametro aqui
     if aluno.getcurso() != professor.getcurso():
         curso = input("Qual o curso que vai estar relacionado ao atendimento marcado?")
     else:
         curso = aluno.getcurso()
-
 
     materia = professor.getmateria()
     print(f"{materia}")
@@ -108,33 +109,33 @@ def marcarAtendimento(aluno,professor): #vai ter q receber o professor e o aluno
     atendimento = Atendimento(curso, materia, data, horario)
 
 
-
-
-
-
-def verificacaoEMAIL(email): #função de verificação do email // felipe
+def verificacaoEMAIL(email):  # função de verificação do email // felipe
     for user in usuarios:
         if user["objeto"].getEmail() == email:
             return True
     return False
 
-def verificacaoTELEFONE(telefone): #função de verificação do telefone // celso
+
+def verificacaoTELEFONE(telefone):  # função de verificação do telefone // celso
     for user in usuarios:
         if user["objeto"].getTelefone() == telefone:
             return True
     return False
 
-def verificacaoCPF(cpf): #função de verificação do cpf // felipe
+
+def verificacaoCPF(cpf):  # função de verificação do cpf // felipe
     for user in usuarios:
         if user["objeto"].getCpf() == cpf:
             return True
     return False
 
-def verificar_matricula(matricula): #msm coisa do cpf // felipe
+
+def verificar_matricula(matricula):  # msm coisa do cpf // felipe
     for user in usuarios:
         if user["tipo"] == "1" and user["objeto"].getmatricula() == matricula:
             return True
     return False
+
 
 def escolher_curso():
     print("\nEscolha seu curso técnico integrado:")
@@ -156,6 +157,7 @@ def escolher_curso():
         print("Insira uma opção válida")
         return escolher_curso()
 
+
 def saida():
     print("\nDigite 0 para sair ou 1 para voltar ao menu principal.")
     escolha = input("Escolha uma opção: ")
@@ -168,66 +170,67 @@ def saida():
         print("Escolha uma opção válida.")
         saida()
 
+
 def registrar():
     print("\nVocê é: 1- Aluno | 2- Professor | 3- Administrador | 0- Voltar")
     tipo = input("Escolha uma opção: ")
-    
+
     if tipo == "0":
         home()
-    
+
     if tipo != "1" and tipo != "2" and tipo != "3":
         print("Valor inválido. Escolha de 1-3.")
         registrar()
 
     nome = input("Digite seu nome: ")
-    
-    while True:    
+
+    while True:
         try:
             idade = int(input("Digite sua idade: "))
             if idade <= 14 or idade >= 75:
-                print ("\nInsira um número válido (Maior que 14 e menor que 75)\n")
-                
+                print("\nInsira um número válido (Maior que 14 e menor que 75)\n")
+
             else:
                 break
-        
+
         except:
-            print ("Insira um número!")      
-              
-    while True: #verificação da cpf
+            print("Insira um número!")
+
+    while True:  # verificação da cpf
         try:
             cpf = int(input("Digite seu CPF: "))
             if verificacaoCPF(cpf):
                 print("\nCPF já registrado. Tente novamente.\n")
-                continue        
+                continue
 
-            else: 
-                break        
+            else:
+                break
 
         except:
             print("\nInsira um valor válido.\n")
-    
-    while True: #verificação de email
+
+    while True:  # verificação de email
         try:
             email = input("Digite seu email: ")
             if verificacaoEMAIL(email):
                 print("\nEmail já registrado. Tente novamente.\n")
-                continue        
+                continue
 
-            else: 
-                break        
+            else:
+                break
 
         except:
             print("\nInsira um email válido.\n")
 
-    while True: #verificação de número
+    while True:  # verificação de número
         try:
             telefone = input("Digite seu telefone: ")
             if verificacaoTELEFONE(telefone):
                 print("\nTelefone já registrado. Tente novamente.\n")
-                continue        
+                continue
 
-            else: 
-                break        
+            else:
+                break
 
         except:
             print("\nInsira um telefone válido.\n")
@@ -238,28 +241,28 @@ def registrar():
         if len(senha) < 6:
             print("A senha deve conter no mínimo 6 caracteres. Tente novamente.")
             continue
-        
+
         else:
             break
-        
+
     while True:
         senha1 = input("Confirme sua senha: ")
         time.sleep(0.5)
-        if senha != senha1: #verificação e requisitos mínimos de senha
+        if senha != senha1:  # verificação e requisitos mínimos de senha
             print("As senhas não coincidem. Tente novamente.")
-            continue 
-        
+            continue
+
         else:
-            for user in usuarios: #verificação do usuário
+            for user in usuarios:  # verificação do usuário
                 if user["usuario"] == usuario:
                     print("O usuário informado já existe. Tente novamente.")
                     registrar()
-        
+
         if tipo == "1":
 
             while True:
                 try:
-                    matricula = int(input("Digite sua matrícula: ")) #definindo matricula
+                    matricula = int(input("Digite sua matrícula: "))  # definindo matricula
                     if verificar_matricula(matricula):
                         print("Matrícula já registrada. Tente novamente.")
                         continue
@@ -268,38 +271,38 @@ def registrar():
                         break
 
                 except:
-                    print ("Insira um número!")
+                    print("Insira um número!")
 
-            curso = escolher_curso() #definindo o curso
-            novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso) 
+            curso = escolher_curso()  # definindo o curso
+            novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso)
             pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper()
             if pcd_y_or_n == "SIM":
                 qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
                 pcd = qualpcd.split("possuo ")
                 pcd = pcd[1]
-                pcd = "possui "+pcd
+                pcd = "possui " + pcd
                 novo_usuario.definindoPcd(pcd)
 
         elif tipo == "2":
-            curso = escolher_curso() #definindo o curso
+            curso = escolher_curso()  # definindo o curso
             novo_usuario = Prof(nome, idade, cpf, email, telefone, curso)
             pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
             if pcd_y_or_n == "SIM":
                 qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
                 pcd = qualpcd.split("possuo ")
                 pcd = pcd[1]
-                pcd = "possui "+pcd
+                pcd = "possui " + pcd
                 novo_usuario.definindoPcd(pcd)
 
 
         elif tipo == "3":
-            novo_usuario = Adm(nome, idade, cpf, email, telefone) 
+            novo_usuario = Adm(nome, idade, cpf, email, telefone)
             pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
             if pcd_y_or_n == "SIM":
                 qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")
                 pcd = qualpcd.split("possuo ")
                 pcd = pcd[1]
-                pcd = "possui "+pcd
+                pcd = "possui " + pcd
                 novo_usuario.definindoPcd(pcd)
 
         else:
@@ -314,22 +317,23 @@ def registrar():
         time.sleep(1)
         acesso()
 
+
 def acesso():
     usuario = input("Digite seu usuário (digite 0 se quiser retornar ao menu): ")
     if usuario == "0":
         home()
         return
     senha = input("Digite sua senha: ")
-    
 
-    dados_usuario = None #definindo os dados do usuario no login // felipe
+    dados_usuario = None  # definindo os dados do usuario no login // felipe
     for user in usuarios:
         if user["usuario"] == usuario and user["senha"] == senha:
             dados_usuario = user
             break
 
     if dados_usuario:
-        tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario["tipo"] == "2" else "Administrador"
+        tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario[
+                                                                                       "tipo"] == "2" else "Administrador"
         nome_pessoa = dados_usuario["objeto"].getNome()
         print("Login realizado!\n")
         print(f"Olá, {tipo_usuario} {nome_pessoa} ")
@@ -343,6 +347,7 @@ def acesso():
         print("\nUsuário ou senha incorretos.")
         acesso()
 
+
 def home():
     option = input("\n1- Login | 2- Registrar | 0- Sair: ")
     if option == "1":
@@ -355,6 +360,7 @@ def home():
     else:
         print("Escolha uma opção válida.")
         home()
+
 
 print("Bem-vindo ao SAA - Sistema de Atendimento ao Aluno\nIFRO Campus Calama - Técnico Integrado")
 home()
