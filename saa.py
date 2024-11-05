@@ -7,8 +7,6 @@ import time
 # Celso Hector Silva Sales
 # Luiz Felipe Macedo Alencar de Menezes
 # Judson Gabriel de Souza Leticia Junior
-#nigga
-
 
 usuarios = [] #.txt aposentado, agr eh lista // celso
 
