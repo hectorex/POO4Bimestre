@@ -9,6 +9,108 @@ import time
 # Judson Gabriel de Souza Leticia Junior
 
 usuarios = [] #.txt aposentado, agr eh lista // celso
+dias = [] # lista de dias de atendimento
+
+def verificacaoDIA(data): # função para verificar se pro dia digitado já existe um atendimento // felipe w/ celso
+    for datas in dias:
+        if datas == data:
+            return True
+    return False
+
+def marcarAtendimento(aluno,professor): #vai ter q receber o professor e o aluno como parametro aqui
+    if aluno.getcurso() != professor.getcurso():
+        curso = input("Qual o curso que vai estar relacionado ao atendimento marcado?")
+    else:
+        curso = aluno.getcurso()
+
+
+    materia = professor.getmateria()
+    print(f"{materia}")
+
+    sair = False
+    while True:
+        if sair == True:
+            break
+        try:
+            atendimentomarcar = int(input("Você quer marcar um atendimento?\n 1 - Sim \n 0 - Não\n R: "))
+
+            if atendimentomarcar == 0:
+                print("Saindo...")
+                sair = True
+                break
+
+            elif atendimentomarcar == 1:
+                dia, mes, ano = input("Quer marcar seu atendimento para qual dia? ").split("/")
+                dia = int(dia)
+                mes = int(mes)
+                ano = int(ano)
+                dia1 = date(ano, mes, dia)
+                data = f"{dia}/{mes}/{ano}"
+                print(dia1, data)
+                var = calendar.day_name[dia1.weekday()]
+
+                if verificacaoDIA(data):
+                    print("Dia já cadastrado")
+                    print("Veja os dias já cadastrados")
+                    for datas in dias:
+                        print(f"================= {datas} =================")
+
+
+
+
+                else:
+                    dias.append(data)
+                    if var == "Monday":
+                        print(f"Nova data marcada para: Segunda-Feira, {data}")
+                        print(dias)
+
+                    elif var == "Tuesday":
+                        print(f"Nova data marcada para: Segunda-Feira, {data}")
+                        print(dias)
+
+                    elif var == "Wednesday":
+                        print(f"Nova data marcada para: Segunda-Feira, {data}")
+                        print(dias)
+
+                    elif var == "Thursday":
+                        print(f"Nova data marcada para: Segunda-Feira, {data}")
+                        print(dias)
+
+                    elif var == "Friday":
+                        print(f"Nova data marcada para: Segunda-Feira, {data}")
+                        print(dias)
+
+        except:
+            print("Insira um valor válido.")
+
+    while True:
+        try:
+            horario = int(input(f"Escolha o horário desejado (9h-12h / 14h-19h) - escreva apenas o número: "))
+            if 9 <= horario <= 12:
+                print(f"Horário marcado para às {horario}h.")
+                break
+            elif 14 <= horario <= 19:
+                print(f"Horário marcado para às {horario}h.")
+                break
+
+            elif horario == 13:
+                print("Horário de almoço.\n")
+                continue
+
+            else:
+                print("Horário inválido.\n")
+                continue
+
+
+        except:
+            print("Insira números!\n")
+
+    atendimento = Atendimento(curso, materia, data, horario)
+
+
+
+
+
 
 def verificacaoEMAIL(email): #função de verificação do email // felipe
     for user in usuarios:
@@ -179,9 +281,8 @@ def registrar():
                 novo_usuario.definindoPcd(pcd)
 
         elif tipo == "2":
-            atendimento = input("Digite seu horário de atendimento: ") #definindo a hora do atendimento
             curso = escolher_curso() #definindo o curso
-            novo_usuario = Prof(nome, idade, cpf, email, telefone, atendimento, curso) 
+            novo_usuario = Prof(nome, idade, cpf, email, telefone, curso)
             pcd_y_or_n = input("Você é uma Pessoa com Deficiência?").upper
             if pcd_y_or_n == "SIM":
                 qualpcd = input("Qual sua deficiência?\nSiga o exemplo: 'possuo deficiência <deficiência>'\nR:")

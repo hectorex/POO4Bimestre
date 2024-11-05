@@ -66,9 +66,9 @@ class PessoaIFRO:   #mãe
             )
 
 class Prof(PessoaIFRO): #prof
-    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, atendimento: str, curso: str):
-        self.__atendimento = atendimento
+    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, curso: str, materia: str):
         self.__curso = curso
+        self.__materia = materia
     
         super().__init__(nome, idade, cpf, email,telefone)
     
@@ -81,6 +81,12 @@ class Prof(PessoaIFRO): #prof
 
     def registrarHorário(self):
         print("continua ou descontinua")
+
+    def getcurso(self):
+        return self.__curso
+
+    def getmateria(self):
+        return self.__materia
         
 class Adm(PessoaIFRO): #adm
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
@@ -89,6 +95,7 @@ class Adm(PessoaIFRO): #adm
     
     def exibir(self):
         super().exibir()
+
 
 
 class Aluno(PessoaIFRO): #aluno
