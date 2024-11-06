@@ -69,7 +69,11 @@ class Prof(PessoaIFRO): #prof
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, curso: str, materia: str):
         self.__curso = curso
         self.__materia = materia    
+        self.__atendimentos = []
         super().__init__(nome, idade, cpf, email,telefone)
+
+    def adicionarAtendimentos(self,atendimento):
+        self.__atendimentos.append(atendimento)
 
     def exibir(self):
         super().exibir()
@@ -98,8 +102,12 @@ class Aluno(PessoaIFRO): #aluno
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, matricula: str, curso: str):
         self.__matricula = matricula
         self.__curso = curso
+        self.__atendimentos = []
         super().__init__(nome, idade, cpf, email, telefone)
 
+    def adicionarAtendimentos(self,atendimento):
+        self.__atendimentos.append(atendimento)
+        
     def getmatricula(self):
         return self.__matricula
 

@@ -172,7 +172,9 @@ def marcarAtendimento(aluno, professor):  # vai ter q receber o professor e o al
         except:
             print("Insira números!\n")
 
-    atendimento = Atendimento(curso, materia, data, horario)
+    atendimento = Atendimento(curso, materia, horario, data, professor, aluno)
+    professor.adicionarAtendimentos(atendimento)
+    aluno.adicionarAtendimentos(atendimento)
 
 
 # Registro
