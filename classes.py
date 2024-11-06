@@ -65,14 +65,11 @@ class PessoaIFRO:  # mãe
         print(
             f"Meu nome: {self.__nome}\nIdade: {self.__idade}\nCPF: {self.__cpf}\nEmail: {self.__email}."
         )
-
-
-class Prof(PessoaIFRO):  # prof
+class Prof(PessoaIFRO): #prof
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, curso: str, materia: str):
         self.__curso = curso
-        self.__materia = materia
-
-        super().__init__(nome, idade, cpf, email, telefone)
+        self.__materia = materia    
+        super().__init__(nome, idade, cpf, email,telefone)
 
     def exibir(self):
         super().exibir()
@@ -89,17 +86,15 @@ class Prof(PessoaIFRO):  # prof
 
     def getmateria(self):
         return self.__materia
-
-
-class Adm(PessoaIFRO):  # adm
+        
+class Adm(PessoaIFRO): #adm
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
         super().__init__(nome, idade, cpf, email, telefone)
 
     def exibir(self):
         super().exibir()
 
-
-class Aluno(PessoaIFRO):  # aluno
+class Aluno(PessoaIFRO): #aluno
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, matricula: str, curso: str):
         self.__matricula = matricula
         self.__curso = curso
