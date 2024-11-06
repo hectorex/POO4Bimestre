@@ -176,7 +176,6 @@ def marcarAtendimento(aluno, professor):  # vai ter q receber o professor e o al
     professor.adicionarAtendimentos(atendimento)
     aluno.adicionarAtendimentos(atendimento)
 
-
 # Registro
 def registrar():
     print("\nVocê é: 1- Aluno | 2- Professor | 3- Administrador | 0- Voltar")
@@ -334,7 +333,7 @@ def acesso():
     usuario = input("Digite seu usuário: ")
     if usuario == "0":
         home()
-        return
+
     senha = input("Digite sua senha: ")
 
     dados_usuario = None  # definindo os dados do usuario no login // felipe
@@ -349,23 +348,23 @@ def acesso():
         if dados_usuario["tipo"] == "1":
             nome_pessoa = dados_usuario["objeto"].getNome()
             print("Login realizado!\n")
+            time.sleep(0.7)
             print(f"Olá, {tipo_usuario} {nome_pessoa} ")
             time.sleep(0.5)
-            menu = int(input("1- Exibir dados do perfil 2- Marcar atendimento 3- Logout\n3- Consultar atendimentos: \n3-  \n\nR: "))
+            menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
             if menu == 1:
-                print ("asdasd")
+                print (f"Nome: {nome}\nIdade: {idade}\nCpf: {cpf}\nEmail: {email}\nTelefone: {telefone}\nPcd: {pcd}\nUsuário: {usuario}\nMatrícula: {matricula}\nCurso: {curso}")
 
 # Acesso Professor
         elif dados_usuario["tipo"] == "2":
             nome_pessoa = dados_usuario["objeto"].getNome()
-            time.sleep(0.7)
             print("Login realizado!\n")
             time.sleep(0.7)
             print(f"Olá, {tipo_usuario} {nome_pessoa} ")
-            time.sleep(0.7)
-            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
-            if menu == 1:
-                print ("asdasd")
+            time.sleep(0.5)
+            menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
+            if menu == 5:
+                exit()
 
 # Acesso Administrador
         elif dados_usuario["tipo"] == "1":
@@ -373,15 +372,13 @@ def acesso():
             print("Login realizado!\n")
             print(f"Olá, {tipo_usuario} {nome_pessoa} ")
             time.sleep(0.5)
-            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
+            menu = int(input("1 -  \n2- Consultar atendimentos: \n3-  \n\nR: "))
             if menu == 1:
                 print ("asdasd")
-
 
     else:
         print("\nUsuário ou senha incorretos.")
         acesso()
-
 
 # Saída
 def saida():
