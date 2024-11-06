@@ -2,6 +2,7 @@ import calendar
 from datetime import *
 import time
 
+
 # Celso, seguinte:
 # 1- Na classe Atendimento, na def "editarData", ta quase tudo completo, o que tá quebrando é a questão
 # da verificação, e eu precisava ver isso com mais calma contigo.
@@ -16,7 +17,7 @@ import time
 # o aluno pode: fazer o atendimento e consultar o que eles tem; o professor não pode marcar, só consultar.
 # tendeu?
 
-class PessoaIFRO:   #mãe
+class PessoaIFRO:  # mãe
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
         self.__nome = nome
         self.__idade = idade
@@ -24,88 +25,96 @@ class PessoaIFRO:   #mãe
         self.__email = email
         self.__telefone = telefone
         self.__pcd = None
-    
+
     def getNome(self):
         return self.__nome
-    
+
     def getPcd(self):
         return self.__pcd
-    
+
     def getTelefone(self):
         return self.__telefone
-    
+
     def setTelefone(self):
         print("Defina um novo telefone.")
         novotelefone = input("Telefone: ")
         self.__telefone = novotelefone
-    
+
     def getIdade(self):
         return self.__idade
-    
+
     def setIdade(self, idade):
         if idade > 10:
             self.__idade = idade
 
     def getCpf(self):
         return self.__cpf
-    
+
     def getEmail(self):
         return self.__email
-    
+
     def setEmail(self):
         print("Defina um novo email.")
         novoemail = input("Email: ")
         self.__email = novoemail
-        
-    def definindoPcd(self,pcd):
+
+    def definindoPcd(self, pcd):
         self.__pcd = pcd
 
     def exibir(self):
         print(
             f"Meu nome: {self.__nome}\nIdade: {self.__idade}\nCPF: {self.__cpf}\nEmail: {self.__email}."
-            )
+        )
 
-class Prof(PessoaIFRO): #prof
-    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, atendimento: str, curso: str):
-        self.__atendimento = atendimento
+
+class Prof(PessoaIFRO):  # prof
+    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, curso: str, materia: str):
         self.__curso = curso
-    
-        super().__init__(nome, idade, cpf, email,telefone)
-    
+        self.__materia = materia
+
+        super().__init__(nome, idade, cpf, email, telefone)
+
     def exibir(self):
         super().exibir()
-        print(f"\nAtendimento: {self.__atendimento}\nCurso: {self.__curso}.")
+        print(f"\n\nCurso: {self.__curso}.")
 
     def consultarAtendimento(self):
         print("Seu atendimento está [AQUI TEM QUE SER O OBJETO DA CLASE ATENDIMENTO OU ALGO ASSIM]...")
 
-    def registrarHorário(self):
+    def registrarHorario(self):
         print("continua ou descontinua")
-        
-class Adm(PessoaIFRO): #adm
-    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
 
-        super().__init__(nome, idade, cpf, email,telefone)
-    
+    def getcurso(self):
+        return self.__curso
+
+    def getmateria(self):
+        return self.__materia
+
+
+class Adm(PessoaIFRO):  # adm
+    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
+        super().__init__(nome, idade, cpf, email, telefone)
+
     def exibir(self):
         super().exibir()
 
 
-class Aluno(PessoaIFRO): #aluno
+class Aluno(PessoaIFRO):  # aluno
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, matricula: str, curso: str):
         self.__matricula = matricula
         self.__curso = curso
         super().__init__(nome, idade, cpf, email, telefone)
-        
+
     def getmatricula(self):
         return self.__matricula
-    
-    def getcurso(self): 
+
+    def getcurso(self):
         return self.__curso
-    
+
     def exibir(self):
         super().exibir()
         print("\nMatrícula: {self.__matricula}")
+
 
 class Atendimento():
     def __init__(self, curso: str, materia: str, horario: str, data: str, professor, aluno):
@@ -113,7 +122,7 @@ class Atendimento():
         self.__materia = materia
         self.__horario = horario
         self.__data = data
-        #Na linha abaixo está acontecendo a relação `trigger digger, skibidi n...`
+        # Na linha abaixo está acontecendo a relação `trigger digger, skibidi n...`
         self.__professor = professor
         self.__aluno = aluno
 
@@ -210,7 +219,6 @@ class Atendimento():
             print("Retornando ao menu...")
             time.sleep(0.5)
             print(".")
-
 
     def cancelarAtendimento(self):
         x = input("Você deseja cancelar seu atendimento? Responda com sim ou não: ").upper()
