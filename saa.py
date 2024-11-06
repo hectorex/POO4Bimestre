@@ -248,18 +248,8 @@ def acesso():
             dados_usuario = user
             break
 
-
-        if tipo == 1:
-            nome_pessoa = dados_usuario["objeto"].getNome()
-            print("Login realizado!\n")
-            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
-            time.sleep(0.5)
-            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
-            if menu == 1:
-                print ("asdasd")
-
 # Acesso Aluno
-    """if dados_usuario:
+    if dados_usuario:
         tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario["tipo"] == "2" else "Administrador"
         if dados_usuario["tipo"] == "1":
             nome_pessoa = dados_usuario["objeto"].getNome()
@@ -291,7 +281,7 @@ def acesso():
             menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
             if menu == 1:
                 print ("asdasd")
-"""
+
 
     else:
         print("\nUsuário ou senha incorretos.")
