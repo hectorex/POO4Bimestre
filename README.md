@@ -1,4 +1,4 @@
-# POO4Bimestre
+# POO3Bimestre
 # Celso Hector, André Luís, Luiz Felipe, Judson Gabriel
 --------------------------------------------------
 att1: adicionado atributo "telefone" na classe mãe, instanciado telefone no login, adicionado métodos set e get telefone. // Celso Hector
