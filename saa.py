@@ -94,10 +94,10 @@ def registrar():
         print("Valor inválido. Escolha de 1-3.")
         registrar()
 
-    # Nome
+# Nome
     nome = input("Digite seu nome: ")
 
-    # Idade
+# Idade
     while True:
         try:
             idade = int(input("Digite sua idade: "))
@@ -110,7 +110,7 @@ def registrar():
         except:
             print("Insira um número!")
 
-        # CPF
+# CPF
     while True:
         try:
             cpf = int(input("Digite seu CPF: "))
@@ -124,7 +124,7 @@ def registrar():
         except:
             print("\nInsira um valor válido.\n")
 
-    # Email
+# Email
     while True:
         email = input("Digite seu email: ")
         if verificacaoEMAIL(email):
@@ -134,7 +134,7 @@ def registrar():
         else:
             break
 
-    # Telefone
+# Telefone
     while True:
         telefone = input("Digite seu telefone: ")
         if verificacaoTELEFONE(telefone):
@@ -144,7 +144,7 @@ def registrar():
         else:
             break
 
-        # PCD
+# PCD
     while True:
         try:
             pcdAsk = int(input("\nVocê é uma Pessoa com Deficiência?\n1- Sim\n2- Não\nR: "))
@@ -165,13 +165,14 @@ def registrar():
         except:
             print("insira uma Opcção!")
 
-    # Usuário
+# Usuário       
     usuario = input("Digite seu usuário: ")
     for user in usuarios:
         if user["usuario"] == usuario:
             print("O usuário informado já existe. Tente novamente.")
+            registrar()
 
-    # Senha
+# Senha
     while True:
         senha = input("Digite sua senha: ")
         if len(senha) < 6:
@@ -180,7 +181,7 @@ def registrar():
         else:
             break
 
-    # Confirmando senha
+# Confirmando senha
     while True:
         senha1 = input("Confirme sua senha: ")
         time.sleep(0.5)
@@ -190,7 +191,7 @@ def registrar():
         else:
             break
 
-        # Aluno
+# Aluno
     if tipo == "1":
         while True:
             try:
@@ -209,12 +210,12 @@ def registrar():
         curso = escolher_curso()
         novo_usuario = Aluno(nome, idade, cpf, email, telefone, matricula, curso)
 
-    # Professor
+# Professor
     elif tipo == "2":
         curso = escolher_curso()  # definindo o curso
         novo_usuario = Prof(nome, idade, cpf, email, telefone, curso)
 
-    # Adiministrador
+# Adiministrador
     elif tipo == "3":
         novo_usuario = Adm(nome, idade, cpf, email, telefone)
 
@@ -247,16 +248,50 @@ def acesso():
             dados_usuario = user
             break
 
-    if dados_usuario:
-        tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario[
-                                                                                       "tipo"] == "2" else "Administrador"
-        nome_pessoa = dados_usuario["objeto"].getNome()
-        print("Login realizado!\n")
-        print(f"Olá, {tipo_usuario} {nome_pessoa} ")
-        time.sleep(0.5)
-        menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \nR: "))
-        if menu == 1:
-            print("fazer o processo da classe atendimento... cada atributo")
+
+        if tipo == 1:
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            print("Login realizado!\n")
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.5)
+            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
+            if menu == 1:
+                print ("asdasd")
+
+# Acesso Aluno
+    """if dados_usuario:
+        tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario["tipo"] == "2" else "Administrador"
+        if dados_usuario["tipo"] == "1":
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            print("Login realizado!\n")
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.5)
+            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
+            if menu == 1:
+                print ("asdasd")
+
+# Acesso Professor
+        elif dados_usuario["tipo"] == "2":
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            time.sleep(0.7)
+            print("Login realizado!\n")
+            time.sleep(0.7)
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.7)
+            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
+            if menu == 1:
+                print ("asdasd")
+
+# Acesso Administrador
+        elif dados_usuario["tipo"] == "1":
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            print("Login realizado!\n")
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.5)
+            menu = int(input("1- Marcar atendimento\n2- Consultar atendimentos: \n3-  \n\nR: "))
+            if menu == 1:
+                print ("asdasd")
+"""
 
     else:
         print("\nUsuário ou senha incorretos.")

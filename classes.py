@@ -66,10 +66,9 @@ class PessoaIFRO:  # mãe
             f"Meu nome: {self.__nome}\nIdade: {self.__idade}\nCPF: {self.__cpf}\nEmail: {self.__email}."
         )
 class Prof(PessoaIFRO): #prof
-    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, curso: str, materia: str):
+    def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str, curso: str):
         self.__curso = curso
-        self.__materia = materia    
-        super().__init__(nome, idade, cpf, email,telefone)
+        super().__init__(nome, idade, cpf, email, telefone)
 
     def exibir(self):
         super().exibir()
@@ -82,10 +81,7 @@ class Prof(PessoaIFRO): #prof
         print("continua ou descontinua")
 
     def getcurso(self):
-        return self.__curso
-
-    def getmateria(self):
-        return self.__materia
+        return self.__cursoa
         
 class Adm(PessoaIFRO): #adm
     def __init__(self, nome: str, idade: int, cpf: int, email: str, telefone: str):
