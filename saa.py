@@ -172,9 +172,6 @@ def marcarAtendimento(aluno, professor):  # vai ter q receber o professor e o al
         except:
             print("Insira números!\n")
 
-     = Atendimento(curso, materia, horario, data,  professor, aluno)
-
-
 # Registro
 def registrar():
     print("\nVocê é: 1- Aluno | 2- Professor | 3- Administrador | 0- Voltar")
@@ -352,7 +349,7 @@ def acesso():
                 time.sleep(0.5)
                 menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
                 if menu == 1:
-                    print (f"Nome: {nome}\nIdade: {idade}\nCpf: {cpf}\nEmail: {email}\nTelefone: {telefone}\nPcd: {pcd}")
+                    print (f"Nome: {nome}\nIdade: {idade}\nCpf: {cpf}\nEmail: {email}\nTelefone: {telefone}\nPcd: {pcd}\nUsuário: {usuario}\nMatrícula: {matricula}\nCurso: {curso}")
 
 # Acesso Professor
             elif dados_usuario["tipo"] == "2":
