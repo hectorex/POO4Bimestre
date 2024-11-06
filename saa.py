@@ -351,9 +351,17 @@ def acesso():
             print("Login realizado!\n")
             print(f"Olá, {tipo_usuario} {nome_pessoa} ")
             time.sleep(0.5)
-            menu = int(input("1- Exibir dados do perfil 2- Marcar atendimento 3- Logout\n3- Consultar atendimentos: \n3-  \n\nR: "))
+            menu = int(input("1- Exibir dados do perfil \n2- Marcar atendimento \n3- Logout\n4- Consultar atendimentos:\nR: "))
             if menu == 1:
-                print ("asdasd")
+                print ("")
+
+            elif menu == 2:
+                marcarAtendimento()
+            
+            elif menu == 3:
+                pass
+            elif menu == 4:
+                pass
 
 # Acesso Professor
         elif dados_usuario["tipo"] == "2":
