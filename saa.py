@@ -329,7 +329,7 @@ def acesso():
     usuario = input("Digite seu usuário: ")
     if usuario == "0":
         home()
-        return
+
     senha = input("Digite sua senha: ")
 
     dados_usuario = None  # definindo os dados do usuario no login // felipe
@@ -339,38 +339,38 @@ def acesso():
             break
 
 # Acesso Aluno
-        if dados_usuario:
-            tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario["tipo"] == "2" else "Administrador"
-            if dados_usuario["tipo"] == "1":
-                nome_pessoa = dados_usuario["objeto"].getNome()
-                print("Login realizado!\n")
-                time.sleep(0.7)
-                print(f"Olá, {tipo_usuario} {nome_pessoa} ")
-                time.sleep(0.5)
-                menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
-                if menu == 1:
-                    print (f"Nome: {nome}\nIdade: {idade}\nCpf: {cpf}\nEmail: {email}\nTelefone: {telefone}\nPcd: {pcd}\nUsuário: {usuario}\nMatrícula: {matricula}\nCurso: {curso}")
+    if dados_usuario:
+        tipo_usuario = "Aluno" if dados_usuario["tipo"] == "1" else "Professor" if dados_usuario["tipo"] == "2" else "Administrador"
+        if dados_usuario["tipo"] == "1":
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            print("Login realizado!\n")
+            time.sleep(0.7)
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.5)
+            menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
+            if menu == 1:
+                print (f"Nome: {nome}\nIdade: {idade}\nCpf: {cpf}\nEmail: {email}\nTelefone: {telefone}\nPcd: {pcd}\nUsuário: {usuario}\nMatrícula: {matricula}\nCurso: {curso}")
 
 # Acesso Professor
-            elif dados_usuario["tipo"] == "2":
-                nome_pessoa = dados_usuario["objeto"].getNome()
-                print("Login realizado!\n")
-                time.sleep(0.7)
-                print(f"Olá, {tipo_usuario} {nome_pessoa} ")
-                time.sleep(0.5)
-                menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
-                if menu == 5:
-                    exit()
+        elif dados_usuario["tipo"] == "2":
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            print("Login realizado!\n")
+            time.sleep(0.7)
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.5)
+            menu = int(input("1- Exibir dados do perfil\n2- Marcar atendimento\n3- Consultar atendimentos\n4- Logout\n5- Sair\nR: "))
+            if menu == 5:
+                exit()
 
 # Acesso Administrador
-            elif dados_usuario["tipo"] == "1":
-                nome_pessoa = dados_usuario["objeto"].getNome()
-                print("Login realizado!\n")
-                print(f"Olá, {tipo_usuario} {nome_pessoa} ")
-                time.sleep(0.5)
-                menu = int(input("1 -  \n2- Consultar atendimentos: \n3-  \n\nR: "))
-                if menu == 1:
-                    print ("asdasd")
+        elif dados_usuario["tipo"] == "1":
+            nome_pessoa = dados_usuario["objeto"].getNome()
+            print("Login realizado!\n")
+            print(f"Olá, {tipo_usuario} {nome_pessoa} ")
+            time.sleep(0.5)
+            menu = int(input("1 -  \n2- Consultar atendimentos: \n3-  \n\nR: "))
+            if menu == 1:
+                print ("asdasd")
 
     else:
         print("\nUsuário ou senha incorretos.")
